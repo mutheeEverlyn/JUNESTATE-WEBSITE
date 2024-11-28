@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.services{
+    background-image: url('./assets/house5.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
