@@ -15,7 +15,7 @@ export interface LoginResponse {
 
 export const loginApi = createApi({
   reducerPath: 'loginAPI',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://real-estate-api-1l8p.onrender.com' }),
   endpoints: (builder) => ({
     loginUser: builder.mutation<LoginResponse, Partial<LogInUser>>({
       query: (user) => ({

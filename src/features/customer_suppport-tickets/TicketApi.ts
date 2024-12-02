@@ -14,7 +14,7 @@ export interface Tticket{
 export const TicketAPI = createApi({
   reducerPath: 'ticketAPI',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:8000/',
+    baseUrl: 'https://real-estate-api-1l8p.onrender.com',
     prepareHeaders: (headers) => {
       const userDetails = JSON.parse(localStorage.getItem('userDetails')||'{}');
       const token=userDetails?.token;
