@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useGetBookingsQuery, TBookedVehicles } from '../features/houses/BookingsApi';
+import { useGetBookingsQuery, TBookedHouses } from '../features/houses/BookingsApi';
 import { Chart, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { format, startOfWeek, parseISO } from 'date-fns';
@@ -18,10 +18,10 @@ const MyBookingsChart: React.FC<MyBookingsChartProps> = ({ user_id }) => {
   useEffect(() => {
     if (bookings) {
       // Filter bookings by user_id and aggregate by week
-      const userBookings = bookings.filter((booking: TBookedVehicles) => booking.user_id === user_id);
+      const userBookings = bookings.filter((booking: TBookedHouses) => booking.user_id === user_id);
       const weeklyBookings: { [weekStart: string]: number } = {};
 
-      userBookings.forEach((booking: TBookedVehicles) => {
+      userBookings.forEach((booking: TBookedHouses) => {
         const bookingDate = parseISO(booking.booking_date);
         const weekStart = format(startOfWeek(bookingDate, { weekStartsOn: 1 }), 'yyyy-MM-dd');
 
