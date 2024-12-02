@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useGetBookingsQuery, TBookedVehicles } from '../features/houses/BookingsApi';
+import { useGetBookingsQuery, TBookedHouses } from '../features/houses/BookingsApi';
 import { Chart, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 
@@ -13,7 +13,7 @@ const RevenueReport: React.FC = () => {
   useEffect(() => {
     if (bookings) {
       // Aggregate total revenue
-      const revenueByStatus = bookings.reduce((acc: any, booking: TBookedVehicles) => {
+      const revenueByStatus = bookings.reduce((acc: any, booking: TBookedHouses) => {
         acc[booking.booking_status] = (acc[booking.booking_status] || 0) + booking.total_amount;
         return acc;
       }, {});
