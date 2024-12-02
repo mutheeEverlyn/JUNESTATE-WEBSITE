@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useGetBookingsQuery, TBookedVehicles } from '../features/houses/BookingsApi';
+import { useGetBookingsQuery, TBookedHouses } from '../features/houses/BookingsApi';
 import { Chart, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 import { format, startOfWeek, parseISO } from 'date-fns';
@@ -16,7 +16,7 @@ const BookingSummary: React.FC = () => {
       // Aggregate bookings by week
       const weeklyBookings: { [weekStart: string]: number } = {};
 
-      bookings.forEach((booking: TBookedVehicles) => {
+      bookings.forEach((booking: TBookedHouses) => {
         const bookingDate = parseISO(booking.booking_date);
         const weekStart = format(startOfWeek(bookingDate, { weekStartsOn: 1 }), 'yyyy-MM-dd');
 
